@@ -12,8 +12,11 @@ for direccion in direcciones:
     print(direccion.text.strip());
 
 
+div_atencion = soupIndex.find('div', class_='elementor-element-6668e804');
+lineas_atencion = div_atencion.find_all('h3', class_='elementor-heading-title elementor-size-default');
 
-
+for lineas in lineas_atencion: 
+    print(lineas.text);
 
 
 pageProgramas = requests.get('https://www.cesde.edu.co/programas/');
@@ -23,14 +26,7 @@ programas = section_programas.find_all('h2', class_='programa-title');
 
 
 for programa in programas: 
-    print(programa.text);
-
-
-
-
-
-
-
+    print(programa.text.strip());
 
 
 
