@@ -12,7 +12,7 @@ def direccion():
     respuestas = [];
     for direccion in direcciones: 
         respuestas.append(direccion.text.strip());
-    return "Sí, nuestras direcciones son: " + ", ".join(respuestas);
+    return "Sí, nuestras direcciones son " + ", ".join(respuestas);
 
 
 div_atencion = soup_index.find('div', class_='elementor-element-6668e804');
@@ -22,17 +22,21 @@ lineas_atencion = div_atencion.find_all('h3', class_='elementor-heading-title el
 def numeros_atencion():
     respuestas = [];
     for lineas in lineas_atencion: 
-    # print(lineas.text);
         respuestas.append(lineas.text.strip());
-    return "Sí, nuestras líneas de atención son: " + ", ".join(respuestas);
+    return "Sí, nuestras líneas de atención son " + ", ".join(respuestas);
 
 
 
-# page_nosotros = requests.get('https://www.cesde.edu.co/nosotros/');
-# soup_nosotros = BeautifulSoup(page_nosotros.text, )
+page_nosotros = requests.get('https://www.cesde.edu.co/nosotros/');
+soup_nosotros = BeautifulSoup(page_nosotros.text, 'html.parser');
+div_nosotros = soup_nosotros.find('div', class_='elementor-element-78d319a');
+texto_nosotros = div_nosotros.find('div', class_='elementor-element-eb71e39');
 
-
-
+def nosotros():
+    respuestas = [];
+    for nosotros in texto_nosotros:
+        respuestas.append(nosotros.text.strip());
+    return "Somos una empresa " + ", ".join(respuestas);
 
 
 
