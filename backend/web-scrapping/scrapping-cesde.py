@@ -43,5 +43,13 @@ def nosotros():
 
 page_creditos = requests.get('https://www.cesde.edu.co/opciones-de-pago/');
 soup_creditos = BeautifulSoup(page_creditos.text, 'html.parser');
-div_creditos = soup_creditos.find_all( 'div' , class_='elementor-widget-wrap elementor-element-populated');
+div_creditos = soup_creditos.find( 'div', class_='elementor-element-8e1238f');
+texto_credito = div_creditos.find('p');
+
+
+def creditos():
+    respuestas = []; 
+    for credito in texto_credito:
+        respuestas.append(texto_credito.text.strip());
+    return "Sí, aquí tienes información de nuestro crédito " + ", " .join(respuestas);
 
