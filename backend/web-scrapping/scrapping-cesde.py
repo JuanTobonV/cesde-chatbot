@@ -29,8 +29,9 @@ def numeros_atencion():
 
 page_nosotros = requests.get('https://www.cesde.edu.co/nosotros/');
 soup_nosotros = BeautifulSoup(page_nosotros.text, 'html.parser');
-div_nosotros = soup_nosotros.find('div', class_='elementor-element-78d319a');
-texto_nosotros = div_nosotros.find('div', class_='elementor-element-eb71e39');
+div_nosotros = soup_nosotros.find('div', class_='elementor-element-eb71e39');
+texto_nosotros = div_nosotros.find('div', class_='elementor-widget-container');
+
 
 def nosotros():
     respuestas = [];
@@ -39,4 +40,8 @@ def nosotros():
     return "Somos una empresa " + ", ".join(respuestas);
 
 
+
+page_creditos = requests.get('https://www.cesde.edu.co/opciones-de-pago/');
+soup_creditos = BeautifulSoup(page_creditos.text, 'html.parser');
+div_creditos = soup_creditos.find_all( 'div' , class_='elementor-widget-wrap elementor-element-populated');
 
