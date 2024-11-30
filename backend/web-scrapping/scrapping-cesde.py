@@ -3,31 +3,33 @@ from bs4 import BeautifulSoup
 #programas, direcciones, 
 
 
-pageIndex = requests.get('https://www.cesde.edu.co/'); 
-soupIndex = BeautifulSoup(pageIndex.text, 'html.parser');
-div_sedes = soupIndex.find('div', class_='elementor-element-69d5de1'); 
+page_index = requests.get('https://www.cesde.edu.co/'); 
+soup_index = BeautifulSoup(page_index.text, 'html.parser');
+div_sedes = soup_index.find('div', class_='elementor-element-69d5de1'); 
 direcciones = div_sedes.find_all('h3', class_='elementor-heading-title elementor-size-default'); 
 
-for direccion in direcciones: 
-    print(direccion.text.strip());
+def direccion():
+    respuestas = [];
+    for direccion in direcciones: 
+        respuestas.append(direccion.text.strip());
+    return "Sí, nuestras direcciones son: " + ", ".join(respuestas);
 
 
-div_atencion = soupIndex.find('div', class_='elementor-element-6668e804');
+div_atencion = soup_index.find('div', class_='elementor-element-6668e804');
 lineas_atencion = div_atencion.find_all('h3', class_='elementor-heading-title elementor-size-default');
 
-for lineas in lineas_atencion: 
-    print(lineas.text);
+
+def numeros_atencion():
+    respuestas = [];
+    for lineas in lineas_atencion: 
+    # print(lineas.text);
+        respuestas.append(lineas.text.strip());
+    return "Sí, nuestras líneas de atención son: " + ", ".join(respuestas);
 
 
-pageProgramas = requests.get('https://www.cesde.edu.co/programas/');
-soupProgramas = BeautifulSoup(pageProgramas.text, 'html.parser');
-section_programas = soupProgramas.find('section', class_='programa-list');
-programas = section_programas.find_all('h2', class_='programa-title');
 
-
-for programa in programas: 
-    print(programa.text.strip());
-
+# page_nosotros = requests.get('https://www.cesde.edu.co/nosotros/');
+# soup_nosotros = BeautifulSoup(page_nosotros.text, )
 
 
 
