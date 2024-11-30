@@ -5,7 +5,7 @@ function Button(props){
     return (
         <>
             <section>
-                <div className='button'>
+                <div className='button' onClick={props.onClick}>
                     <p>
                         {props.typeButton}
                     </p>
@@ -16,7 +16,8 @@ function Button(props){
 }
 
 Button.propTypes = {
-    typeButton:PropTypes.string.isRequired,
+    typeButton: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
 }
 
 export default Button
