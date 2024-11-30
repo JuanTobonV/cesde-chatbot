@@ -1,0 +1,27 @@
+nav{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 10px;
+    
+
+}
+
+.nav__img{
+    width: 200px;
+}
+.nav__arrow{
+    width: 25px;
+}
+
+.nav__links{
+    display: flex;
+    gap: 10px;
+}
+
+.nav__links a{
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    color: #706F6F;
+
+}
