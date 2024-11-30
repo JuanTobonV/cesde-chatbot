@@ -3,7 +3,18 @@ import './assets/styles/Question.css'
 //import axios from 'axios'
 
 
-function Question(props){
+const Question = ({questionBody, onClick}) =>{
+    return(
+        <>
+            <section>
+                <div onClick={onClick} className='questionBody'>
+                    {questionBody}
+                </div>
+            </section>
+        
+        </>
+    )
+}
 
     // let llamado = async (pregunta)=>{
     //     let url = "";
@@ -15,20 +26,12 @@ function Question(props){
     //     }
     // }
 
-    return(
-        <>
-            <section>
-                <div className='questionBody'>
-                    {props.questionBody}
-                </div>
-            </section>
-        
-        </>
-    )
-}
+
+
 
 Question.propTypes = {
     questionBody: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
 }
 
 export default Question

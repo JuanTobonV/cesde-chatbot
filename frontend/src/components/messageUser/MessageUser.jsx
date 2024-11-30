@@ -1,14 +1,14 @@
-import './assets/styles/AnswerBot.css'
-import chatbotIcon from '../assets/img/chatbotIcon.png'
+import './assets/style/MessageUser.css'
+import userIcon from '../assets/img/user.png'
 import PropTypes from 'prop-types'
 
-const AnswerBot = ({message}) => {
 
+const MessageUser = ({message}) => {
     return(
         <>
-            <section className="message">
+            <section className="messageUser">
                 <div>
-                    <img className="chatbot__Icon" src={chatbotIcon} alt="" />
+                    <img className="chatbot__Icon" src={userIcon} alt="" />
                 </div>
                 <div>
 
@@ -22,8 +22,10 @@ const AnswerBot = ({message}) => {
         </>
     )
 }
-AnswerBot.propTypes = {
+
+MessageUser.propTypes = {
     message: PropTypes.string.isRequired,
 }
 
-export default AnswerBot
+
+export default MessageUser
